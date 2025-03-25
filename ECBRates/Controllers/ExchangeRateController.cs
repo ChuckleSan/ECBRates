@@ -5,21 +5,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ECBRates.Controllers
 {
+    /// <summary>
+    /// Controller to handle exchange rate related requests.
+    /// </summary>
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="ExchangeRateController"/> class.
+    /// </remarks>
+    /// <param name="exchangeRateService">The exchange rate service.</param>
     [ApiController]
     [Route("api/[controller]")]
-    public class ExchangeRateController : ControllerBase
+    public class ExchangeRateController(IExchangeRateService exchangeRateService) : ControllerBase
     {
-        private readonly IExchangeRateService _exchangeRateService;
-
-        public ExchangeRateController(IExchangeRateService exchangeRateService)
-        {
-            _exchangeRateService = exchangeRateService;
-        }
+        private readonly IExchangeRateService _exchangeRateService = exchangeRateService;
 
         /// <summary>
-        /// Gets a list of all available currencies from ECB
+        /// Gets a list of all available currencies from ECB.
         /// </summary>
-        /// <returns>List of currency codes</returns>
+        /// <returns>List of currency codes.</returns>
         [HttpGet("currencies")]
         public async Task<ActionResult<List<string>>> GetCurrencies()
         {
@@ -28,9 +30,12 @@ namespace ECBRates.Controllers
         }
 
         /// <summary>
-        /// Gets a list of all available currencies from ECB
+        /// Gets a list of exchange rates for a specific currency within a date range.
         /// </summary>
-        /// <returns>List of currency codes</returns>
+        /// <param name="currencyCode">The currency code.</param>
+        /// <param name="dtStart">The start date.</param>
+        /// <param name="dtEnd">The end date.</param>
+        /// <returns>List of exchange rates.</returns>
         [HttpGet("rates")]
         public async Task<ActionResult<List<ExchangeRate>>> GetCurrencyRates(
             [FromQuery] string currencyCode,
@@ -45,9 +50,11 @@ namespace ECBRates.Controllers
         }
 
         /// <summary>
-        /// Gets a list of all available currencies from ECB
+        /// Gets exchange rates for a specific currency on a specific date.
         /// </summary>
-        /// <returns>List of currency codes</returns>
+        /// <param name="currencyCode">The currency code.</param>
+        /// <param name="dtEff">The effective date.</param>
+        /// <returns>List of exchange rates.</returns>
         [HttpGet("rates/date")]
         public async Task<ActionResult<List<ExchangeRate>>> GetCurrencyRatesByDate(
             [FromQuery] string currencyCode,
@@ -61,9 +68,10 @@ namespace ECBRates.Controllers
         }
 
         /// <summary>
-        /// Gets a list of all available currencies from ECB
+        /// Gets the latest exchange rates for a specific currency.
         /// </summary>
-        /// <returns>List of currency codes</returns>
+        /// <param name="currencyCode">The currency code.</param>
+        /// <returns>List of latest exchange rates.</returns>
         [HttpGet("rates/latest")]
         public async Task<ActionResult<List<ExchangeRate>>> GetCurrencyLatestRates(
             [FromQuery] string currencyCode)
