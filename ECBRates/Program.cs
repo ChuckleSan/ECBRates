@@ -21,7 +21,7 @@ builder.Services.AddSwaggerGen(c =>
         Contact = new OpenApiContact
         {
             Name = "Chris Huckle",
-            Email = "chris@chuckletech.com"
+            Email = "noone@nowhere.com"
         }
     });
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
