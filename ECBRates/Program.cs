@@ -2,7 +2,7 @@ using System.Reflection;
 
 using ECBRates.Services;
 
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +21,7 @@ builder.Services.AddSwaggerGen(c =>
         Contact = new OpenApiContact
         {
             Name = "Chris Huckle",
-            Email = "noone@nowhere.com"
+            Email = "chris@chuckletech.com"
         }
     });
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
