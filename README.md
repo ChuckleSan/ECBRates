@@ -47,4 +47,5 @@ This project is open source. Feel free to use it in your own applications.
 ---
 
 **Made with ❤️ by [ChuckleSan](https://github.com/ChuckleSan)**
+
 ---
