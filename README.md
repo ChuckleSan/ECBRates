@@ -1,7 +1,8 @@
-<div style="display: flex; align-items: center; justify-content: space-between;">
-  <h1>ECBRates</h1>
-  <img src="https://github.com/ChuckleSan/Kumu/blob/master/Kumu/wwwroot/assets/logo.svg" height="64px" />
-</div>
+<img src="https://github.com/ChuckleSan/ECBRates/blob/master/ECBRates/wwwroot/assets/Logo_European_Central_Bank.svg.png" align="right" height="64px" />
+
+# ECBRates
+
+
 
 A lightweight **REST API** for retrieving official currency exchange rates from the **European Central Bank (ECB)**.
 
