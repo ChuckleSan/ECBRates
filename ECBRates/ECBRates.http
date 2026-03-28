@@ -1,6 +1,0 @@
-@ECBRates_HostAddress = http://localhost:5186
-
-GET {{ECBRates_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
